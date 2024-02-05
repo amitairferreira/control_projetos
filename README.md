@@ -42,6 +42,10 @@ Por outro lado, existe um acoplamento ruim de uma classe A para uma classe B qua
 
 Acoplamento pode ser de grande utilidade, principalmente quando ocorre com a interface de uma classe estável que presta um serviço relevante para a classe de origem. Já o acoplamento ruim deve ser evitado, pois é um acoplamento não mediado por interfaces. Mudanças na classe de destino do acoplamento podem facilmente se propagar para a classe de origem.
 
+# Princípios de bons projetos - SOLID
+
+## Responsabilidade única;
+Esse princípio é uma aplicação direta da ideia de coesão. Ele propõe o seguinte: toda classe deve ter uma única responsabilidade. Mais ainda, responsabilidade, no contexto do princípio, significa motivo para modificar uma classe. Ou seja, deve existir um único motivo para modificar qualquer classe em um sistema. Um corolário desse princípio recomenda separar apresentação de regras de negócio. Portanto, um sistema deve possuir classes de apresentação, que vão tratar de aspectos de sua interface com os usuários, formato das mensagens, meio no qual as mensagens serão exibidas, etc. E classes responsáveis por regras de negócio, isto é, que vão realizar as computações, processamento, análises, etc. São interesses e responsabilidades diferentes. E que podem evoluir e sofrer modificações por razões distintas. Portanto, elas devem ser implementadas em classes diferentes.
 
 
 
@@ -50,24 +54,9 @@ Acoplamento pode ser de grande utilidade, principalmente quando ocorre com a int
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-Pricipios de bons projetos
-
-Responsabilidade única;
-Aberto/Fechado;
-Substituição de Liskov;
-Segregação de Interfaces;
-Inversão de dependências;
-Prefira Interfaces a calsses;
-Demeter;
+## Aberto/Fechado;
+## Substituição de Liskov;
+## Segregação de Interfaces;
+## Inversão de dependências;
+## Prefira Interfaces a classes;
+## Demeter;
