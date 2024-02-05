@@ -80,3 +80,6 @@ O Princípio de Demeter — também chamado de Princípio do Menor Privilégio (
 - de atributos da classe do método (caso 4)
 
 Costuma-se dizer que o Princípio de Demeter recomenda que os métodos de uma classe devem falar apenas com seus amigos, isto é, com métodos da própria classe ou então com métodos de objetos que eles recebem como parâmetro ou que eles criam. Por outro lado, não é recomendável falar com os amigos dos amigos.
+
+## Referências Bibliográficas
+VALENTE, Marco Tulio. Engenharia de software moderna. Princípios e Práticas para Desenvolvimento de Software com Produtividade, 2020.
