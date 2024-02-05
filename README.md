@@ -54,8 +54,6 @@ Esse princípio, originalmente proposto por Bertrand Meyer ainda na década de 8
  Hoje, o emprego de herança é mais restrito e raro. No entanto, alguns casos de uso ainda são justificados. Herança define uma relação é-um entre objetos de uma classe base e objetos de subclasses. A vantagem é que comportamentos (isto é, métodos) comuns a essas classes podem ser implementados uma única vez, na classe base. Feito isso, eles são herdados em todas as subclasses.
  De forma mais concreta, o Princípio de Substituição de Liskov define o seguinte: suponha que um cliente chame um método getPrimo(n) de um objeto p da classe NumeroPrimo. Suponha agora que o objeto p seja substituído por um objeto de uma subclasse de NumeroPrimo. Nesse caso, o cliente vai passar a executar o método getPrimo(n) dessa subclasse. Porém, essa substituição de métodos não deve ter impacto no comportamento do cliente. Para tanto, todos os métodos getPrimo(n) das subclasses de NumeroPrimo devem realizar as mesmas tarefas que o método original, possivelmente de modo mais eficiente.
 
-
-
 ## Segregação de Interfaces;
 O princípio define que interfaces têm que ser pequenas, coesas e, mais importante ainda, específicas para cada tipo de cliente. O objetivo é evitar que clientes dependam de interfaces com métodos que eles não vão usar. Para evitar isso, duas ou mais interfaces específicas podem, por exemplo, substituir uma interface de propósito geral.
 Uma violação do princípio ocorre, por exemplo, quando uma interface possui dois conjuntos de métodos Mx e My. O primeiro conjunto é usado por clientes Cx (que então não usam os métodos My). De forma inversa, os métodos My são usados apenas por clientes Cy (que não usam os métodos Mx). Consequentemente, essa interface deveria ser quebrada em duas interfaces menores e específicas: uma interface contendo apenas os métodos Mx e a segunda interface contendo apenas os métodos My.
@@ -64,7 +62,21 @@ Uma violação do princípio ocorre, por exemplo, quando uma interface possui do
 Esse princípio recomenda que uma classe cliente deve estabelecer dependências prioritariamente com abstrações e não com implementações concretas, pois abstrações (isto é, interfaces) são mais estáveis do que implementações concretas (isto é, classes). A ideia é então trocar (ou inverter) as dependências: em vez de depender de classes concretas, clientes devem depender de interfaces. Portanto, um nome mais intuitivo para o princípio seria Prefira Interfaces a Classes.
 Para detalhar a ideia do princípio, suponha que exista uma interface I e uma classe C1 que a implementa. Se puder escolher, um cliente deve se acoplar a I e não a C1. O motivo é que quando um cliente se acopla a uma interface I ele fica imune a mudanças na implementação dessa interface. Por exemplo, em vez de C1, pode-se mudar a implementação para C2, que isso não terá impacto no cliente em questão.
 
-
-
 ## Prefira Interfaces a classes;
+Existem dois tipos de herança:
+- Herança de classes, que é aquela que envolve reúso de código. Não apenas neste capítulo, mas em todo o livro, quando mencionarmos apenas o termo herança estaremos nos referindo a herança de classes.
+- Herança de interfaces, que não envolve reúso de código. Essa forma de herança é mais simples e não suscita preocupações. Quando precisarmos de nos referir a ela, iremos usar o nome completo: herança de interfaces.
+
+Herança tende a introduzir problemas na manutenção e evolução das classes de um sistema. Esses problemas têm sua origem no forte acoplamento que existe entre subclasses e superclasses. O princípio, porém, não proíbe o uso de herança. Mas ele recomenda: se existirem duas soluções de projeto, uma baseada em herança e outra em composição, a solução por meio de composição, normalmente, é a melhor. Só para deixar claro, existe uma relação de composição entre duas classes A e B quando a classe A possui um atributo do tipo B.
+
 ## Demeter;
+O Princípio de Demeter — também chamado de Princípio do Menor Privilégio (Principle of Least Privilege) — defende que a implementação de um método deve invocar apenas os seguintes outros métodos:
+- de sua própria classe (caso 1)
+
+- de objetos passados como parâmetros (caso 2)
+
+- de objetos criados pelo próprio método (caso 3)
+
+- de atributos da classe do método (caso 4)
+
+Costuma-se dizer que o Princípio de Demeter recomenda que os métodos de uma classe devem falar apenas com seus amigos, isto é, com métodos da própria classe ou então com métodos de objetos que eles recebem como parâmetro ou que eles criam. Por outro lado, não é recomendável falar com os amigos dos amigos.
